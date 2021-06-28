@@ -1,0 +1,11 @@
+@font-face {
+  font-family: TTNorms;
+  src: url(./assets/fonts/TTNorms-Regular.otf);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: TTNorms;
+}
+
