@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import formReducer from '../features/counter/counterSlice'
+import formReducer from './formSlice'
 
 export default configureStore({
   reducer: {

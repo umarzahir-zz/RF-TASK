@@ -9,3 +9,23 @@ body {
   font-family: TTNorms;
 }
 
+h1{
+  font-size: 36px !important;
+  color: #006AB3;
+  font-weight: bold;
+  margin-bottom: 2px !important;
+}
+
+.MuiAutocomplete-popupIndicator {
+  /* padding: 2px; */
+  margin-right: -8px !important;
+  margin-top: -14px !important;
+  height: 55px !important;
+  background-color: #DEE2E6 !important;
+  border-radius: 0 !important;
+  width: 50px !important;
+}
+
+.MuiFormLabel-asterisk{
+  color: red !important;
+}

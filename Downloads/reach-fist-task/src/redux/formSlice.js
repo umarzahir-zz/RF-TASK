@@ -3,15 +3,15 @@ import { createSlice } from '@reduxjs/toolkit'
 export const formSlice = createSlice({
   name: 'form',
   initialState: {
-    value: 0,
+    lookingFor: "", experience: "", education: "", skills: "", description: ""
   },
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1
+    addStepOneData: (state, action) => {
+      state.lookingFor  = action.lookingFor;
+      state.experience  = action.experience;
+      state.education   = action.education;
+      state.skills      = action.skills;
+      state.description = action.description
     },
     decrement: (state) => {
       state.value -= 1
@@ -22,7 +22,6 @@ export const formSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = formSlice.actions
+export const { addStepOneData, decrement, incrementByAmount } = formSlice.actions
 
 export default formSlice.reducer
