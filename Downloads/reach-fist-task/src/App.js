@@ -8,18 +8,20 @@ import {
   Link
 } from "react-router-dom";
 import StepperFormPage from './pages/stepper-form';
+import NavBar from "./components/navbar"
 
 
 
 function App() {
   return (
+    <Provider store={store}>
     <Router>
+      <NavBar/>
       <Switch>
-        <Provider store={store}>
         <Route path="/"> <StepperFormPage/> </Route>
-        </Provider>
     </Switch>
     </Router>
+  </Provider>
   );
 }
 

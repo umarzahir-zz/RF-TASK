@@ -3,6 +3,9 @@ import styles from "./stepper-form.module.css";
 import { Container, Row, Col } from 'react-bootstrap'
 import cn from 'classnames'
 import FirstStep from './first-step';
+import SecondStep from "./second-step";
+import ThirdStep from './third-step';
+
 export default function Index() {
 
   const step1Class = () => {
@@ -22,9 +25,9 @@ export default function Index() {
     }
     
     const renderStep = () => {
-        if(step === 1) {
-            return <FirstStep/>
-        }
+        if(step === 1) return <FirstStep/>
+        if(step === 2) return <SecondStep/>
+        if(step === 3)  return <ThirdStep/>
     }
 
     const handleNext = () => {
@@ -38,8 +41,6 @@ export default function Index() {
  
     const [step, setStep] = useState(1);
     const [totalSteps, setTotalSteps] = useState(3);
-    const [step1Data, setStep1Data] = useState({lookingFor: "", experience: "", education: "", skills: "", description: "" })
-    const [step2Data, setStep2Data] = useState({hourlyRate: "", satrtDate: "", careerLevel: "", gender: "", equiqSpecification: "" })
     return (
              <Container fluid> 
                 <Container className="py-4">
