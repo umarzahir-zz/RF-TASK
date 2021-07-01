@@ -5,12 +5,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import StepperFormPage from './pages/stepper-form';
+import ViewJobs from './pages/view-jobs';
+import User from './pages/user';
 import NavBar from "./components/navbar"
-
-
 
 function App() {
   return (
@@ -18,7 +17,9 @@ function App() {
     <Router>
       <NavBar/>
       <Switch>
-        <Route path="/"> <StepperFormPage/> </Route>
+        <Route exact path="/"> <StepperFormPage/> </Route>
+        <Route path="/jobs/view"> <ViewJobs/> </Route>
+        <Route path="/user"> <User/> </Route>
     </Switch>
     </Router>
   </Provider>

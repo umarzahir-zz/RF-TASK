@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
 import styles from "./stepper-form.module.css"
 
@@ -14,13 +14,16 @@ export default function ThirdStep() {
            if(found !== -1){
                temp =[ ...selectedDays];
                 temp.splice(found,1)
+                localStorage.setItem("sday",JSON.stringify(temp))
               return setSelectedDays(temp)
            }
        }
        const mytemp = [...selectedDays, event.target.id ]
+       localStorage.setItem("sday",JSON.stringify(mytemp))
        setSelectedDays(mytemp)
    }
    const daysClass = (id) => {
+       console.log(selectedDays)
     const alredy = selectedDays.findIndex((item) => item === id)
     if(alredy !== -1){
         return styles.daySelect
@@ -35,10 +38,13 @@ export default function ThirdStep() {
         if(found !== -1){
             temp =[ ...selectedTimes];
              temp.splice(found,1)
+             localStorage.setItem("sdayTime", JSON.stringify(temp))
            return setSelectedTimes(temp)
         }
     }
     const mytemp = [...selectedTimes, event.target.id ]
+    localStorage.setItem("sdayTime", JSON.stringify(mytemp))
+
     setSelectedTimes(mytemp)
 }
    
@@ -49,6 +55,21 @@ export default function ThirdStep() {
     }
     return styles.timeDay
 }
+
+useEffect(() => {
+    const days = localStorage.getItem("sday")
+    const daysTime = localStorage.getItem("sdayTime")
+    if(days) {
+        const d = JSON.parse(days)
+        setSelectedDays(d)
+    }
+    if(daysTime) {
+        const t = JSON.parse(daysTime)
+        setSelectedTimes(t)
+    }
+    
+   
+}, [])
     return (
         <Container>
             <Row>

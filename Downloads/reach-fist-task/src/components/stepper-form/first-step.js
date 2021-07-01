@@ -7,10 +7,7 @@ import styles from "./stepper-form.module.css"
 
 export default function FirstStep({step}) {
 
-    // const [lookingFor, setLookingFor] = useState("")
-    // const [experience, setExperience] = useState("")
-    // const [education, setEducation] = useState("")
-    // const [description, setDescription] = useState("")
+    
     const [step1Data, setStep1Data] = useState({lookingFor: "", experience: "", education: "", skills: "", description: "" })
 
 

@@ -5,8 +5,14 @@ import cn from 'classnames'
 import FirstStep from './first-step';
 import SecondStep from "./second-step";
 import ThirdStep from './third-step';
+import {useDispatch} from "react-redux"
+import {addJob} from "../../redux/formSlice" 
+import {useHistory} from "react-router"
 
-export default function Index() {
+export default function Index(props) {
+
+    const dispatch = useDispatch()
+    const history = useHistory()
 
   const step1Class = () => {
         if(step === 1) return cn(styles.stepperDesignActive,  "d-flex align-items-center justify-content-center")
@@ -31,8 +37,18 @@ export default function Index() {
     }
 
     const handleNext = () => {
-        if(step === 3) return
+        if(step === 3){
+         const step1   = JSON.parse(localStorage.getItem("step1Data"))
+         const step2   = JSON.parse(localStorage.getItem("step2Data"))
+         const days    = JSON.parse(localStorage.getItem("sday"))
+         const dayTime = JSON.parse(localStorage.getItem("sdayTime"))
+         const step3 =  { days: [...days], daysTime:  [...dayTime] }
+         const job = {step1: {...step1}, step2: {...step2},  step3}   
+         dispatch(addJob(job))    
+         return history.push("/jobs/view")  
+        } 
         setStep((previous) => previous + 1)
+        
     }
     const handlePrevious = () => {
         if(step === 1) return
