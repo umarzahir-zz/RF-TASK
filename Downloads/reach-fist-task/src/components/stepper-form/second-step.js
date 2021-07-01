@@ -13,7 +13,6 @@ export default function SeconSstep() {
     const handleChange = (event, value) => {
         const eventArray = event.target.id.split("-")
         const [id] = eventArray
-        console.log(id)
         if(id) setStep2Data((prevState)=> ({...prevState, [id]: value || event.target.value})) 
     }
     useEffect(() => {
@@ -26,8 +25,6 @@ export default function SeconSstep() {
         
         const savedData = JSON.parse(localStorage.getItem("step2Data"))
         if(savedData){
-             console.log("mount")
-             console.log(savedData)                           
              const {hourlyRate: hr , satrtDate: sd , careerLevel: cl , gender: g , equiqSpecification: eq } = savedData
             setStep2Data((prevState)=> ({...prevState, "hourlyRate": hr, "satrtDate": sd, "careerLevel": cl, "gender": g, "equiqSpecification": eq})) 
         }
