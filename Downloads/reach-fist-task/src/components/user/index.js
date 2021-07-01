@@ -47,10 +47,10 @@ export default function Index() {
             <Row >
                 <Col className="d-flex justify-content-center">
                 <form onSubmit={handleSubmit}>
-                    <input type="text" name="id"  placeholder="Id"             onChange={handleChange} />
-                    <input type="text" name="name" placeholder="Name"          onChange={handleChange} />
-                    <input type="text" name="userName" placeholder="User Name" onChange={handleChange} />
-                    <button type="submit"> save</button>
+                    <input type="text" class="input" name="id"  placeholder="Id"             onChange={handleChange} />
+                    <input type="text" class="input" name="name" placeholder="Name"          onChange={handleChange} />
+                    <input type="text" class="input" name="userName" placeholder="User Name" onChange={handleChange} />
+                    <button type="submit" class="button"> save</button>
                 </form>
                 </Col>
             </Row>

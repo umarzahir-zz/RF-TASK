@@ -6,7 +6,7 @@ import FirstStep from './first-step';
 import SecondStep from "./second-step";
 import ThirdStep from './third-step';
 import {useDispatch} from "react-redux"
-import {addJob} from "../../redux/formSlice" 
+import {addJob, addNotification} from "../../redux/formSlice" 
 import {useHistory} from "react-router"
 
 export default function Index(props) {
@@ -42,9 +42,12 @@ export default function Index(props) {
          const step2   = JSON.parse(localStorage.getItem("step2Data"))
          const days    = JSON.parse(localStorage.getItem("sday"))
          const dayTime = JSON.parse(localStorage.getItem("sdayTime"))
+         if(days === null) return 
+         if(dayTime === null) return 
          const step3 =  { days: [...days], daysTime:  [...dayTime] }
          const job = {step1: {...step1}, step2: {...step2},  step3}   
-         dispatch(addJob(job))    
+         dispatch(addJob(job))
+         dispatch(addNotification(job))
          return history.push("/jobs/view")  
         } 
         setStep((previous) => previous + 1)

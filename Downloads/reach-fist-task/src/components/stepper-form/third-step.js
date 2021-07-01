@@ -9,7 +9,6 @@ export default function ThirdStep() {
    const handleDays = (event) => {
        let temp;
        if(selectedDays){
-           console.log(selectedDays, event.target.id)
       const found = selectedDays.findIndex(id => id === event.target.id)
            if(found !== -1){
                temp =[ ...selectedDays];
@@ -23,7 +22,6 @@ export default function ThirdStep() {
        setSelectedDays(mytemp)
    }
    const daysClass = (id) => {
-       console.log(selectedDays)
     const alredy = selectedDays.findIndex((item) => item === id)
     if(alredy !== -1){
         return styles.daySelect
@@ -33,7 +31,6 @@ export default function ThirdStep() {
    const handleTimes = (event) => {
     let temp;
     if(selectedTimes){
-        console.log(selectedTimes, event.target.id)
    const found = selectedTimes.findIndex(id => id === event.target.id)
         if(found !== -1){
             temp =[ ...selectedTimes];

@@ -26,8 +26,6 @@ export default function FirstStep({step}) {
         
         const savedData = JSON.parse(localStorage.getItem("step1Data"))
         if(savedData){
-             console.log("mount")
-             console.log(savedData)                           
              const {lookingFor: lf , experience: exp , education: edu , skills: sk , description: des } = savedData
             setStep1Data((prevState)=> ({...prevState, "lookingFor": lf, "experience": exp, "education": edu, "skills": sk, "description": des})) 
         }

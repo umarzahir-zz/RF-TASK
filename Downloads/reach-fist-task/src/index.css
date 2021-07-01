@@ -29,3 +29,15 @@ h1{
 .MuiFormLabel-asterisk{
   color: red !important;
 }
+
+.edit {
+cursor: pointer;
+font-size: 25px;
+color: green;
+}
+.del {
+  cursor: pointer;
+  font-size: 25px;
+  color: red;
+
+}

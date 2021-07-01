@@ -1,24 +1,36 @@
 import React,{useState,useEffect} from 'react'
 import {Table} from "react-bootstrap"
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import {delJob} from "../../redux/formSlice" 
 
 export default function Index() {
   
   const {jobs} = useSelector((state) => state.form)
+  const dispatch = useDispatch()
   const [myJobs , setMyJobs] = useState([])
   useEffect(() => {
    setMyJobs(jobs)
    localStorage.clear()
   }, [])
   
+const handleDel = (del) => {
+  const tempJobs = jobs;
+  const afterDelJobs = tempJobs.filter((job) => {
+    return job.lookingFor !==  del
+  }) 
+  dispatch(delJob(afterDelJobs))
+  setMyJobs(afterDelJobs)
 
+}
+const handleEdit = () => {
+
+}
   const handleChange = (event) => {
     const {value} = event.target
     if(!value) {
     return  setMyJobs(jobs)
     } 
     const filterJobs = myJobs && myJobs?.filter((job) => {
-     console.log(job)
       return  job?.lookingFor?.includes(value)
     })
     setMyJobs(filterJobs)
@@ -42,6 +54,8 @@ export default function Index() {
               <td>{job.lookingFor}</td>
               <td>{job.experience}</td>
               <td>{job.education}</td>
+              <td class="del" onClick={() =>handleDel(job.lookingFor)}><i class="fa fa-trash" aria-hidden="true"></i></td>
+              <td class="edit" onClick={() => handleEdit(job.lookingFor)}><i class="fa fa-edit" aria-hidden="true"></i></td>
             </tr>
             )
           })}
